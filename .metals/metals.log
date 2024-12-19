@@ -1,0 +1,3 @@
+2024.12.19 17:48:12 INFO  Started: Metals version 1.4.2 in folders 'C:\Users\Vitorio.amc\Documents\GitHub\caixa' for client Theia IDE 1.96.0.
+2024.12.19 17:48:16 WARN  no build tool detected in workspace 'C:\Users\Vitorio.amc\Documents\GitHub\caixa'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 
+2024.12.19 17:48:16 WARN  Build server is not auto-connectable.
