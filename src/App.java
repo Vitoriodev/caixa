@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class App {
 	
-	public static void dinheiro(Scanner input) {
+	public static void dinheiro(Scanner input) { //pagamento de dinheiro
 		while (true) {
 			
 			System.out.print("qual o valor da compra: ");
@@ -32,15 +32,38 @@ public class App {
 		
 					
 	}
-	public static void debito(Scanner input) {
+	public static void debito(Scanner input) { // pagamento em débito
 		
-		System.out.println("qual o valor da compra: ");
+		while (true) {
+			
+			System.out.println("qual o valor da compra: ");
+			float valor = input.nextFloat();
 		
-		// em construção.
-		
+			System.out.println("adicione dinheiro no cartão de débito: ");
+			float debito = input.nextFloat();
+			
+			float total = debito - valor;
+			debito = debito - valor; //o resto do dinheiro que sobrou vai retorna para conta.
+			
+			if(total > 0) {
+				System.out.println("você passou mais que devia, nos retonamos o seu valor que foi ultrapassado");
+								
+				System.out.println("valor do seu cartão: "+debito+"\nsua compra foi realizadar.");
+				
+			}else if(total < 0) {
+				System.out.println("você não tem saldo suficiênte");
+				continue;
+				
+				
+			}else {
+				System.out.println("valor do seu cartão: "+debito+"\nsua compra foi realizadar.");
+			}
+			
+			break;
+		}
 		
 	}
-	public static void credito(Scanner input) {
+	public static void credito(Scanner input) { //pagamento em cartão de credito
 		
 		System.out.print("qual o valor da compra: ");
 		float valor = input.nextFloat();
@@ -49,7 +72,6 @@ public class App {
 		float credito = input.nextFloat();
 		
 		float pacelas = valor / credito;
-		
 				
 		if(credito >= 2) {
 			System.out.println("você pacelou "+credito+" vezes e vai pagar "+pacelas+" por pacelas.");
@@ -67,15 +89,15 @@ public class App {
         System.out.println("caixa eletronica");
         
         System.out.println("qua o tipo de pagamento.");
-        
+        System.out.println("dinheiro(1) débito(2) catão de credito(3)");
+                
         Scanner input = new Scanner(System.in);
         
         while (true) {
         	
         	try {
     			
-            	int pagamento = input.nextInt();
-            	
+            	int pagamento = input.nextInt();   	
             	switch (pagamento) {
             	
             		case 1:
@@ -85,7 +107,7 @@ public class App {
             			
             		case 2:
             			System.out.println("você escolheu em paga em débito.");
-            			
+            			debito(input);
             			break;
             			
             		case 3:
@@ -97,20 +119,17 @@ public class App {
             			System.out.println("ops! essa opção não existe.");
 						break;
     			}
-            	
-            	
+            	            	
     		} catch (Exception e) {
-    			// TODO: handle exception
+    			System.out.println("essa opção não existem tente novamente.");
+    			continue;
     		}
         	
-        	
-        	
+        		
         }
-        
-        
-			
+        		
 		}
-        
-        
-           
+    
 }
+
+
